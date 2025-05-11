@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import API from '../api';
-import '../styles/orderHistory.css';
+import React, { useEffect, useState } from "react";
+import API from "../api";
+import "../styles/orderHistory.css";
 
 function OrderHistory() {
   const [orderSummary, setOrderSummary] = useState(null);
@@ -26,24 +26,33 @@ function OrderHistory() {
 
   return (
     <div className="order-history-container">
-      <h2 className="order-history-title">Order Summary - Table {tableNumber}</h2>
+      <h2 className="order-history-title">
+        Order Summary - Table {tableNumber}
+      </h2>
 
       {!orderSummary || Object.keys(orderSummary.items || {}).length === 0 ? (
         <div>No items ordered yet.</div>
       ) : (
         <>
           <ul className="order-items">
-            {Object.entries(orderSummary.items).map(([itemName, quantity], i) => (
-              <li key={i}>
-                {itemName} × {quantity}
-              </li>
-            ))}
+            {Object.entries(orderSummary.items).map(
+              ([itemName, quantity], i) => (
+                <li key={i}>
+                  {itemName} × {quantity}
+                </li>
+              )
+            )}
           </ul>
-          <div className="order-price">Total: ₹{orderSummary.totalPrice.toFixed(2)}</div>
+          <div className="order-price">
+            Total: ₹{orderSummary.totalPrice.toFixed(2)}
+          </div>
         </>
       )}
 
-      <button className="back-button" onClick={() => window.location.href = '/menu'}>
+      <button
+        className="back-button"
+        onClick={() => (window.location.href = "/menu")}
+      >
         ← Back to Menu
       </button>
     </div>
