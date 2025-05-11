@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../api";
-import Button from "../components/Button";
+// import Button from "../components/Button";
 import MenuItemCard from "../components/MenuItemCard";
 import "../styles/menu.css";
 import { FaShoppingCart, FaFileInvoice } from "react-icons/fa";
@@ -12,7 +12,7 @@ function Menu() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [loading, setLoading] = useState(true);
   const [showMessage, setShowMessage] = useState(false);
-  const tableNumber = localStorage.getItem("tableNumber");
+  // const tableNumber = localStorage.getItem("tableNumber");
 
   useEffect(() => {
     async function fetchMenu() {

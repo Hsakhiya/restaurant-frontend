@@ -15,7 +15,7 @@ function Start() {
 
     async function validateTable() {
       try {
-        const res = await API.get(`/tables/check/${tableNumber}`);
+        // const res = await API.get(`/tables/check/${tableNumber}`);
         localStorage.setItem("tableNumber", tableNumber);
         navigate("/menu");
       } catch (err) {

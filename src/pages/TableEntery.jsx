@@ -9,7 +9,7 @@ export default function TableEntry() {
 
   const handleStart = async () => {
     try {
-      const res = await API.get(`/tables/check/${tableNumber}`);
+      // const res = await API.get(`/tables/check/${tableNumber}`);
       localStorage.setItem("tableNumber", tableNumber);
       navigate("/menu");
     } catch (err) {
