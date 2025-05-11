@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import API from '../api';
+// import API from '../api';
 
 function Start() {
   const navigate = useNavigate();

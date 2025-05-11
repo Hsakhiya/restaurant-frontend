@@ -1,7 +1,7 @@
 // src/pages/TableEntry.jsx
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import API from "../api";
+// import API from "../api";
 
 export default function TableEntry() {
   const [tableNumber, setTableNumber] = useState("");
