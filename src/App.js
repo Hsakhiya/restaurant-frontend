@@ -5,7 +5,7 @@ import Menu from "./pages/Menu";
 import OrderSuccess from "./pages/OrderSuccess";
 import Cart from './pages/Cart'; 
 import Bill from './pages/Bill';
-// import OrderHistory from './pages/OrderHistory';
+import OrderHistory from './pages/OrderHistory';
 import Start from "./pages/Start";
 function App() {
   return (
@@ -17,7 +17,6 @@ function App() {
         <Route path="/order-success" element={<OrderSuccess />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/bill" element={<Bill />} />
-        {/* <Route path="/orderHistory" element={<OrderHistory />} /> */}
       </Routes>
     </Router>
   );
