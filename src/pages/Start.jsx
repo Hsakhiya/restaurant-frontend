@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import API from '../api';
+// import API from '../api';
 
 function Start() {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function Start() {
 
     async function validateTable() {
       try {
-        const res = await API.get(`/tables/check/${tableNumber}`);
+        // const res = await API.get(`/tables/check/${tableNumber}`);
         localStorage.setItem("tableNumber", tableNumber);
         navigate("/menu");
       } catch (err) {

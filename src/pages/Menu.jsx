@@ -12,7 +12,7 @@ function Menu() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [loading, setLoading] = useState(true);
   const [showMessage, setShowMessage] = useState(false);
-  const tableNumber = localStorage.getItem("tableNumber");
+  // const tableNumber = localStorage.getItem("tableNumber");
 
   useEffect(() => {
     async function fetchMenu() {
