@@ -3,7 +3,7 @@
 
   const API = axios.create({
     // baseURL: "http://localhost:5000/api",
-    baseURL: "https://restaurant-backend-2vnb.onrender.com",
+    baseURL: "https://restaurant-backend-2vnb.onrender.com/api",
     // baseURL: "https://restaurant-backend-production-664d.up.railway.app/api",
   });
 
