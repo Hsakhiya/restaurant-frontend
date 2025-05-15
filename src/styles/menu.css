@@ -157,4 +157,27 @@ body, html {
     z-index: 1000;
     transition: opacity 0.3s ease-in-out;
   }
+
+  .category-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
   
+
+  .category-btn {
+    background-color: #222;
+    border: 1px solid #444;
+    margin: 5px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s;
+  }
+  
+  .category-btn.active {
+    background-color: #ffb703;
+    color: #000;
+  }

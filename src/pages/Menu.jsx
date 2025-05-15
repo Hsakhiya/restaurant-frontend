@@ -8,8 +8,8 @@ import { FaShoppingCart, FaFileInvoice } from "react-icons/fa";
 function Menu() {
   const [order, setOrder] = useState({});
   const [menu, setMenu] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [categories, setCategories] = useState([{ _id: 'all', name: 'All' }]); // categories from API
+  const [selectedCategory, setSelectedCategory] = useState('all'); // use _id for selection
   const [loading, setLoading] = useState(true);
   const [showMessage, setShowMessage] = useState(false);
   // const tableNumber = localStorage.getItem("tableNumber");
@@ -17,14 +17,15 @@ function Menu() {
   useEffect(() => {
     async function fetchMenu() {
       try {
+         // Fetch categories
+         const categoriesResponse = await API.get('/categories');
+         // Prepend "All" category
+         setCategories([{ _id: 'all', name: 'All' }, ...categoriesResponse.data]);
+
+         
         const response = await API.get("/menu/available");
         setMenu(response.data);
 
-        const uniqueCategories = [
-          "All",
-          ...new Set(response.data.map((item) => item.category)),
-        ];
-        setCategories(uniqueCategories);
       } catch (err) {
         alert("Failed to fetch menu");
       } finally {
@@ -53,32 +54,26 @@ function Menu() {
     0
   );
 
-  const filteredMenu =
-    selectedCategory === "All"
-      ? menu
-      : menu.filter((item) => item.category === selectedCategory);
+  // Filter menu items by selected category _id ('all' means no filtering)
+  const filteredMenu = selectedCategory === 'all'
+    ? menu
+    : menu.filter(item => item.category === selectedCategory);
 
   return (
     <div className="menu-background">
       <h2 className="menu-title">Menu</h2>
 
       {/* Category Section */}
-      <div className="category-section">
-        <div className="category-list">
-          {categories.map((category) => (
-            <div
-              key={category}
-              className="category-item"
-              onClick={() => setSelectedCategory(category)}
-              style={{
-                backgroundColor: selectedCategory === category ? "#ffb703" : "",
-                color: selectedCategory === category ? "#000" : "",
-              }}
-            >
-              {category}
-            </div>
-          ))}
-        </div>
+      <div className="category-buttons">
+        {categories.map(cat => (
+          <button
+            key={cat._id}
+            className={`category-btn ${selectedCategory === cat._id ? 'active' : ''}`}
+            onClick={() => setSelectedCategory(cat._id)}
+          >
+            {cat.name}
+          </button>
+        ))}
       </div>
 
       {/* Success Message when item is added to cart */}

@@ -58,6 +58,7 @@ function Cart() {
             name: item.name, 
             itemPrice: item?.price,   // Price of the item
             status: "pending",  // Default status
+            category: item?.category,
             
           });
           totalPrice += item?.price;  // Add the price to the total
